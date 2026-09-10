@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+const { title = 'James Delosh | Senior Solutions Architect', description = 'I turn complex technical requirements into solutions customers, partners, and engineering teams can act on.' } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0D1621" />
+    <meta name="author" content="James Delosh" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="James Delosh" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {!Astro.site && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/" aria-label="James Delosh home"><span class="monogram" aria-hidden="true">JD<span>·</span></span><span>James Delosh</span></a>
+      <nav aria-label="Main navigation">
+        <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/#beyond">Beyond work</a><a href="/resume/">Résumé</a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer id="contact" class="site-footer wrap">
+      <div class="footer-top"><div><p class="eyebrow">Let’s connect</p><h2>Good solutions start<br />with a conversation.</h2><a class="email-link" href="mailto:jtdelosh@gmail.com">jtdelosh@gmail.com <span aria-hidden="true">↗</span></a></div><div class="footer-links"><a href="https://www.linkedin.com/in/james-delosh-a7291081/">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/jtdelosh-ops">GitHub <span aria-hidden="true">↗</span></a><a href="/resume/">View résumé <span aria-hidden="true">↗</span></a></div></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} James Delosh</span><span>Discovery. Architecture. Working software.</span><a href="#main">Back to top ↑</a></div>
+    </footer>
+  </body>
+</html>

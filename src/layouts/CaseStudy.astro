@@ -1,0 +1,19 @@
+---
+import Layout from './Layout.astro';
+const { title, description, category, role, scope, next, nextLabel } = Astro.props;
+---
+<Layout title={`${title} | James Delosh`} description={description}>
+  <article class="case-study wrap">
+    <header class="case-header">
+      <a class="back-link" href="/#work">← Selected work</a>
+      <p class="eyebrow">{category}</p>
+      <h1>{title}</h1>
+      <p class="case-intro">{description}</p>
+      <slot name="notice" />
+      <div class="case-facts"><div><span>My role</span><p>{role}</p></div><div><span>Focus</span><p>{scope}</p></div></div>
+      <div class="project-links"><slot name="links" /></div>
+    </header>
+    <slot />
+    <nav class="case-next" aria-label="Project navigation"><a class="text-link" href="/#work">← All selected work</a><a class="text-link" href={next}>{nextLabel} →</a></nav>
+  </article>
+</Layout>

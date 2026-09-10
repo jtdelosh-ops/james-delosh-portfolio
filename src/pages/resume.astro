@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { experience } from '../data/experience';
+---
+<Layout title="Résumé | James Delosh — Senior Solutions Architect" description="James Delosh’s experience across solutions architecture, sales engineering, cybersecurity, and platform integrations.">
+  <article class="resume wrap">
+    <header class="case-header"><a class="back-link" href="/">← Home</a><p class="eyebrow">Experience & qualifications</p><h1>James Delosh</h1><p class="case-intro">Senior Solutions Architect<br /><span>Solutions Engineering · Platform Integrations</span></p><div class="resume-contact"><a href="mailto:jtdelosh@gmail.com">jtdelosh@gmail.com</a><a href="https://www.linkedin.com/in/james-delosh-a7291081/">LinkedIn ↗</a><a href="https://github.com/jtdelosh-ops">GitHub ↗</a></div><a class="button" href="/downloads/james-delosh-resume.pdf" download>Download résumé PDF ↓</a></header>
+    <div class="resume-grid"><aside class="resume-sidebar"><section><h2>Technical expertise</h2><h3>Solutions engineering</h3><p>Technical discovery, solution architecture, demonstrations, proofs of concept, technical enablement, RFPs, and customer and partner integrations.</p><h3>Platforms & security</h3><p>SIEM, SOAR, EDR, firewalls, Splunk, IBM QRadar, MITRE ATT&CK, incident response, and adversary emulation.</p><h3>Integration & development</h3><p>REST APIs, OAuth 2.0, webhooks, Python, JSON, and SaaS and on-premises integrations.</p></section><section><h2>Education</h2><h3>Northeastern University</h3><p>Bachelor of Science<br />Computer Engineering</p></section></aside><section class="resume-history"><h2>Professional experience</h2>{experience.map(job => <article class="resume-job"><p class="date">{job.dates}</p><h3>{job.company}</h3>{job.context && <p class="company-context">{job.context}</p>}<h4>{job.role}</h4><ul>{job.bullets.map(bullet => <li>{bullet}</li>)}</ul></article>)}</section></div>
+    <p class="source-note">Adapted for the web from the supplied current résumé. The downloadable PDF is the original supplied copy.</p>
+  </article>
+</Layout>

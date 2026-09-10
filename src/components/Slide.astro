@@ -1,0 +1,7 @@
+---
+const { number, title, alt } = Astro.props;
+---
+<figure class="deck-figure">
+  <a href={`/images/architecture-slide-${number}.webp`} aria-label={`Open ${title} diagram at full size`}><img src={`/images/architecture-slide-${number}.webp`} width="1920" height="1080" loading="lazy" alt={alt} /></a>
+  <figcaption><span>{title} · Slide {number} from the independent case study</span><a href={`/images/architecture-slide-${number}.webp`}>Open full-size diagram ↗</a></figcaption>
+</figure>
