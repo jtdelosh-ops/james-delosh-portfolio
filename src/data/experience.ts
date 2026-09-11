@@ -24,7 +24,7 @@ export const experience = [
     'Diagnosed connectivity, platform, content, and SIEM integration issues while acting as the liaison between customer and internal engineering.',
     'Reproduced and escalated complex issues, including a Mac agent registration failure traced to a source-code defect.'
   ]},
-  { company: 'Verodin', role: 'Sales Engineer', dates: 'December 2018 – April 2020', bullets: [
+  { company: 'Verodin', context: 'Acquired by FireEye / Mandiant; later acquired by Google', role: 'Sales Engineer', dates: 'December 2018 – April 2020', bullets: [
     'Owned the technical pre-sales cycle across the Mid-Atlantic and Public Sector, from discovery and demonstrations through controls-validation PoCs.',
     'Scoped evaluations, selected attack content and use cases, and guided deployment and configuration.',
     'Developed executive-level PoC readouts connecting technical results to security outcomes, control gaps, and business value.'
