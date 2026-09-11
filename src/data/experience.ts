@@ -19,8 +19,8 @@ export const experience = [
     'Coordinated customer, engineering, and detection teams to troubleshoot data pipelines and validate detections and alerts.',
     'Advocated for customers with Product and Engineering to improve onboarding and product usability.'
   ]},
-  { company: 'Verodin', context: 'Acquired by FireEye; now Google Cloud', role: 'Consulting Engineer', dates: 'April 2020 – May 2021', bullets: [
-    'Selected as the dedicated Verodin subject-matter expert embedded with the attack-simulation team of a major global financial-services customer.',
+  { company: 'JPMorgan Chase', context: 'Full-time contractor on behalf of Verodin', role: 'Consulting Engineer', dates: 'April 2020 – May 2021', bullets: [
+    'Selected as the dedicated Verodin subject-matter expert embedded with the attack-simulation team at JPMorgan Chase.',
     'Diagnosed connectivity, platform, content, and SIEM integration issues while acting as the liaison between customer and internal engineering.',
     'Reproduced and escalated complex issues, including a Mac agent registration failure traced to a source-code defect.'
   ]},
