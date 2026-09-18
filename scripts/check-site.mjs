@@ -4,8 +4,8 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root = path.resolve('dist');
-const companionAsset = '/assets/b9/b9-companion.c96958b2dcbd.js';
-const companionSha256 = 'c96958b2dcbd8ead556a7241aef09153673dddcd13153a599be360bb6cbfac03';
+const companionAsset = '/assets/b9/b9-companion.3120719178d6.js';
+const companionSha256 = '3120719178d6cc97b16ee998bc9a76746216a3be067234a9fc5ee4c3f7d5d6b0';
 function attributesOf(tag) {
   const attributes = new Map();
   const contents = tag.replace(/^<[\w-]+/, '').replace(/\/?>$/, '');

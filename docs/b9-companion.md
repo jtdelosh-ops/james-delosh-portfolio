@@ -9,11 +9,11 @@ The components respect reduced-motion preferences and are hidden for printing.
 
 The vendored bundle is revision 14 from
 [jtdelosh-ops/b9-web-companion](https://github.com/jtdelosh-ops/b9-web-companion),
-commit `421cbc4aa5c723f087a2065aa88a142f525fe867`.
+commit `fa0b909ba113013414d31609dad3bb65b8d6645e`, including the pointer-focus correction.
 
 - Source artifact: `dist/b9-companion.js`
-- Local artifact: `public/assets/b9/b9-companion.c96958b2dcbd.js`
-- SHA-256: `c96958b2dcbd8ead556a7241aef09153673dddcd13153a599be360bb6cbfac03`
+- Local artifact: `public/assets/b9/b9-companion.3120719178d6.js`
+- SHA-256: `3120719178d6cc97b16ee998bc9a76746216a3be067234a9fc5ee4c3f7d5d6b0`
 - Integration: `src/components/B9Companion.astro`, included by `Layout.astro`
 
 The source artifact is copied without modification. It includes the SVG

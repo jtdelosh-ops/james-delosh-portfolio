@@ -12,5 +12,5 @@
 /downloads/*
   Cache-Control: public, max-age=3600
 
-/assets/b9/b9-companion.c96958b2dcbd.js
+/assets/b9/b9-companion.3120719178d6.js
   Cache-Control: public, max-age=31536000, immutable
