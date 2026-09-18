@@ -1,8 +1,19 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root = path.resolve('dist');
+const companionAsset = '/assets/b9/b9-companion.c96958b2dcbd.js';
+const companionSha256 = 'c96958b2dcbd8ead556a7241aef09153673dddcd13153a599be360bb6cbfac03';
+function attributesOf(tag) {
+  const attributes = new Map();
+  const contents = tag.replace(/^<[\w-]+/, '').replace(/\/?>$/, '');
+  for (const match of contents.matchAll(/([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g)) {
+    attributes.set(match[1].toLowerCase(), match[2] ?? match[3] ?? match[4] ?? '');
+  }
+  return attributes;
+}
 const files = [];
 async function walk(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -19,6 +30,23 @@ for (const file of htmlFiles) pages.set(file, await readFile(file, 'utf8'));
 let linkCount = 0;
 for (const [file, html] of pages) {
   const label = path.relative(root, file);
+  const companions = [...html.matchAll(/<b9-companion\b[^>]*>/gi)];
+  const remotes = [...html.matchAll(/<b9-remote\b[^>]*>/gi)];
+  assert.equal(companions.length, 1, `Expected one B-9 companion: ${label}`);
+  assert.equal(remotes.length, 1, `Expected one B-9 remote: ${label}`);
+  const companion = attributesOf(companions[0][0]);
+  const remote = attributesOf(remotes[0][0]);
+  assert.equal(companion.get('id'), 'site-robot', `Unexpected B-9 ID: ${label}`);
+  assert.equal(companion.get('size'), '220', `Unexpected B-9 size: ${label}`);
+  assert.ok(companion.has('hidden'), `B-9 must start hidden: ${label}`);
+  assert.ok(!companion.has('parked') && !companion.has('autostart'), `B-9 must wait for an invitation: ${label}`);
+  assert.equal(remote.get('for'), companion.get('id'), `B-9 remote target mismatch: ${label}`);
+  const companionScripts = [...html.matchAll(/<script\b[^>]*>/gi)]
+    .map(match => attributesOf(match[0]))
+    .filter(attributes => /\/b9-companion[.-]/.test(attributes.get('src') ?? ''));
+  assert.equal(companionScripts.length, 1, `Expected one B-9 script: ${label}`);
+  assert.equal(companionScripts[0].get('src'), companionAsset, `Unexpected B-9 asset: ${label}`);
+  assert.ok(companionScripts[0].has('defer'), `B-9 script must be deferred: ${label}`);
   assert.match(html, /<html[^>]+lang="en"/, `Missing language: ${label}`);
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `Expected one H1: ${label}`);
   for (const marker of ['name="description"', 'property="og:title"', 'property="og:description"', 'name="viewport"', 'id="main"']) {
@@ -51,8 +79,14 @@ for (const [file, html] of pages) {
     linkCount++;
   }
 }
+const companionBundle = await readFile(path.join(root, companionAsset));
+assert.equal(createHash('sha256').update(companionBundle).digest('hex'), companionSha256, 'B-9 bundle differs from the verified revision 14 release');
+for (const credit of ['AUDIO-CREDITS.md', 'THREE-LICENSE.txt']) {
+  const contents = await readFile(path.join(root, 'assets/b9', credit), 'utf8');
+  assert.ok(contents.trim().length > 0, `Missing B-9 attribution: ${credit}`);
+}
 const deck = await readFile(path.join(root, 'downloads/embedded-workforce-platform-integration.pptx'));
 assert.equal(deck.subarray(0, 2).toString(), 'PK', 'Presentation is not a ZIP-based Office file');
 const pdf = await readFile(path.join(root, 'downloads/james-delosh-resume.pdf'));
 assert.equal(pdf.subarray(0, 5).toString(), '%PDF-', 'Resume is not a PDF');
-console.log(`PASS: ${htmlFiles.length} HTML pages, ${linkCount} local references, page metadata, accessible image labels, homepage privacy, and both downloads.`);
+console.log(`PASS: ${htmlFiles.length} HTML pages, ${linkCount} local references, page metadata, accessible image labels, homepage privacy, both downloads, and the B-9 integration, bundle integrity, and credits.`);

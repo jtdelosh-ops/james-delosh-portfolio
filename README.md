@@ -1,6 +1,8 @@
 # James Delosh — professional portfolio v1
 
-An Astro static site with a navy / ivory / brass visual system, four project pages, an HTML résumé, original PDF download, and the polished 18-slide architecture presentation. No database, CMS, login, backend, tracking, or production client JavaScript. Nothing has been deployed.
+The Astro portfolio at [jamesdelosh.com](https://jamesdelosh.com), with project pages, an HTML résumé, a PDF download, and an architecture presentation. A compact **Meet B-9** button invites visitors to try the optional robot companion. He starts hidden and silent; the rest of the site works without JavaScript. There is no database, CMS, login, backend or tracking.
+
+The companion is a bundled Web Component included by the shared layout. See [B-9 integration notes](docs/b9-companion.md) for source, credits and update instructions.
 
 ## Run and build
 
@@ -45,7 +47,10 @@ Before an approved public deployment, set the build environment variable `SITE_U
 
 For example, set `SITE_URL` in your hosting dashboard and rebuild. In PowerShell, set `$env:SITE_URL` to your approved origin before `pnpm build`; on macOS/Linux export `SITE_URL` before building. The `.env.example` documents the variable; the configuration reads the process environment.
 
-## Cloudflare deployment — only after approval
+## Cloudflare deployment
+
+The live site is connected to `jtdelosh-ops/james-delosh-portfolio` on GitHub.
+Changes merged into `main` trigger the existing **Workers Builds: james-delosh-portfolio** deployment. Build and validate the site before merging, then check the Cloudflare build and the live domain.
 
 The site is host-independent static output. Current [Astro guidance](https://docs.astro.build/en/guides/deploy/cloudflare/) recommends Cloudflare Workers for new projects; no Astro Cloudflare adapter is needed for this static build.
 
@@ -53,7 +58,7 @@ The site is host-independent static output. Current [Astro guidance](https://doc
 
 **Cloudflare Pages:** use a Pages project with the site folder as its root, `pnpm build` as the build command, and `dist` as the output directory. Set Node 22.12+ and `SITE_URL` in the build environment. Alternatively upload the contents of `dist/` through a direct-upload Pages project. This is a multipage site: do not add an SPA catch-all rewrite.
 
-Do not publish or connect a domain until James approves. If creating a GitHub repository from the parent Codex folder, follow its `AGENTS.md` branch-protection requirements.
+The production domain is already connected. Keep future changes scoped to the requested site update; domain and hosting changes require a separate request.
 
 ## Verification
 
