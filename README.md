@@ -39,7 +39,7 @@ Edit the homepage in `src/pages/index.astro`, detailed roles in `src/data/experi
 
 Public assets live in `public/images/` and `public/downloads/`. Images are locally optimized WebP copies with explicit dimensions, responsive variants where useful, and natural color. Original input files were not modified. The polished deck was found and included, so **no replacement slot is needed**. To update it later, replace `public/downloads/embedded-workforce-platform-integration.pptx` and refresh any affected slide images.
 
-The PDF is the unchanged supplied résumé and retains its original contact line. Phone and location are omitted from the website’s HTML. The public email is `jtdelosh@gmail.com`.
+The PDF is the unchanged supplied résumé and retains its original contact line. Phone and location are omitted from the website’s HTML. The public website email is `james@jamesdelosh.com`.
 
 ## Domain and search metadata
 
