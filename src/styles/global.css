@@ -21,3 +21,28 @@
 .hero-with-portrait .hero-foot{grid-column:1/-1;width:100%}
 @media(max-width:1100px) and (min-width:721px){.hero-with-portrait{grid-template-columns:minmax(0,1fr) 240px;gap:0 35px}.hero-portrait{width:240px}.hero-with-portrait h1{font-size:clamp(2.7rem,5.8vw,4.7rem)}}
 @media(max-width:720px){.hero-with-portrait{grid-template-columns:1fr;row-gap:0}.hero-portrait{grid-row:1;width:176px;margin-bottom:32px}.hero-with-portrait h1{font-size:clamp(3rem,10vw,4.8rem)}.hero-with-portrait .hero-foot{grid-column:1}}
+
+.security-work-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);align-items:stretch;gap:20px;margin-top:36px}
+.security-work-grid>.project-card{min-width:0}
+.naab-card .eyebrow{margin-bottom:15px}
+.naab-card h3{margin-bottom:13px}
+.naab-card>p:not(.eyebrow){font-size:.94rem}
+.naab-tech{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:18px;color:var(--slate);font-size:.78rem}
+.naab-tech span+span{border-left:1px solid var(--line);padding-left:20px}
+.naab-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;width:100%;padding:25px 0 12px;margin:0;list-style:none}
+.naab-flow li{position:relative;min-width:0;padding:13px 12px;background:var(--navy);border:1px solid var(--line);border-top-color:var(--brass)}
+.naab-flow li+li:before{content:'→';position:absolute;left:-14px;top:28%;z-index:1;color:var(--brass);background:var(--surface);font-size:1rem;padding:0 2px}
+.naab-flow strong,.naab-flow small{display:block}
+.naab-flow strong{font-size:.76rem;line-height:1.35;font-weight:500;color:var(--ivory)}
+.naab-flow small{font-size:.68rem;line-height:1.4;color:var(--slate);margin-top:7px}
+.naab-card .naab-dns{font-size:.82rem!important;border-left:2px solid var(--brass);padding-left:12px;margin-top:6px}
+.naab-card .naab-limit{font-size:.75rem!important;color:var(--slate);margin-top:10px}
+.naab-card>.text-link{margin-top:19px}
+.security-automation-card .project-visual{margin-block:22px 16px}
+.security-automation-card .project-visual img{width:100%;border:1px solid var(--line)}
+.security-automation-card .disclaimer{margin-top:0;margin-bottom:18px}
+.security-automation-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:auto}
+.work-transition{margin:48px 0 18px;font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:var(--brass)}
+.work-heading p:not(.eyebrow){max-width:470px}
+@media(max-width:900px){.security-work-grid{grid-template-columns:1fr 1fr}.security-work-grid>.project-card{padding:28px 24px}.naab-flow{gap:8px}.naab-flow li{padding:11px 8px}}
+@media(max-width:720px){.security-work-grid{grid-template-columns:1fr;gap:18px;margin-top:28px}.security-work-grid>.project-card{padding:27px 23px}.naab-flow{grid-template-columns:1fr;gap:9px;padding-top:20px}.naab-flow li{padding:12px 14px}.naab-flow li+li:before{content:'↓';left:50%;top:-15px;transform:translateX(-50%);padding:0 4px}.naab-flow strong{font-size:.82rem}.naab-flow small{margin-top:3px}.work-transition{margin-top:36px}.security-automation-links{gap:10px 18px}}
