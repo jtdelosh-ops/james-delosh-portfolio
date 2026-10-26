@@ -1,6 +1,6 @@
 export const experience = [
-  { company: 'Remote', context: 'remote.com', role: 'Senior Solutions Architect, Platform Partnerships', dates: '2026 – Present', bullets: [
-    'Serve as the technical liaison between strategic platform partners and Product and Engineering, translating partner requirements into scalable integration solutions.',
+  { company: 'Remote', context: 'remote.com', role: 'Solutions Architect, Embedded Partnerships', dates: '2026 – Present', bullets: [
+    'Design and test embedded integrations with HR technology partners.',
     'Shape integration architecture through discovery and design discussions spanning APIs, OAuth, webhooks, SDKs, and embedded experiences.',
     'Guide external engineering teams through the integration lifecycle with architecture advice, troubleshooting, and technical validation.'
   ]},
