@@ -43,6 +43,6 @@ export const experience = [
     'Contributed to response processes, detection criteria, technical documentation, and onboarding materials.'
   ]},
   { company: 'United States Marine Corps', role: 'Amphibious Assault Vehicle Crew Chief', dates: 'August 2006 – May 2010', bullets: [
-    'Led and trained an 18-person unit as a Corporal, maintaining accountability for personnel, multi-million-dollar military vehicles, and equipment.'
+    'Led training maneuvers with a 10-person section while serving as crew chief on an amphibious assault vehicle.'
   ]},
 ];
